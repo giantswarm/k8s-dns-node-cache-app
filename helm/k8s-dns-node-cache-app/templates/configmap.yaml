@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+data:
+  Corefile: |
+    __PILLAR__DNS__DOMAIN__:{{ .Values.ports.dns.targetPort }} {
+        errors
+        cache {
+                success 9984 {{ .Values.configmap.cache.success }}
+                denial 9984 {{ .Values.configmap.cache.denial }}
+        }
+        reload
+        loop
+        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        forward . __PILLAR__CLUSTER__DNS__ {
+                force_tcp
+        }
+        prometheus :{{ .Values.ports.prometheus }}
+        health __PILLAR__LOCAL__DNS__:{{ .Values.ports.liveness }}
+    }
+    in-addr.arpa:{{ .Values.ports.dns.targetPort }} {
+        errors
+        cache {{ .Values.configmap.cache.success }}
+        reload
+        loop
+        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        forward . __PILLAR__CLUSTER__DNS__ {
+                force_tcp
+        }
+        prometheus :{{ .Values.ports.prometheus }}
+    }
+    ip6.arpa:{{ .Values.ports.dns.targetPort }} {
+        errors
+        cache {{ .Values.configmap.cache.success }}
+        reload
+        loop
+        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        forward . __PILLAR__CLUSTER__DNS__ {
+                force_tcp
+        }
+        prometheus :{{ .Values.ports.prometheus }}
+    }
+    .:{{ .Values.ports.dns.targetPort }} {
+        errors
+        cache {{ .Values.configmap.cache.success }}
+        reload
+        loop
+        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        forward . __PILLAR__UPSTREAM__SERVERS__
+        prometheus :{{ .Values.ports.prometheus }}
+    }
+

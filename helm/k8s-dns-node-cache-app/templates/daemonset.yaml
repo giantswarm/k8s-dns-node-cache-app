@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  updateStrategy:
+    {{- toYaml .Values.updateStrategy | indent 4 }}
+  selector:
+    matchLabels:
+      {{- include "labels.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "labels.common" . | nindent 8 }}
+        giantswarm.io/monitoring: "true"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "{{ .Values.ports.prometheus }}"
+        giantswarm.io/monitoring-path: /metrics
+        giantswarm.io/monitoring-port: "{{ .Values.ports.prometheus }}"
+    spec:
+      priorityClassName: system-node-critical
+      securityContext:
+        runAsUser: {{ .Values.userID }}
+        runAsGroup: {{ .Values.groupID }}
+      serviceAccountName: {{ .Values.name }}
+      hostNetwork: true
+      dnsPolicy: Default  # Don't use cluster DNS.
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
+      - effect: "NoExecute"
+        operator: "Exists"
+      - effect: "NoSchedule"
+        operator: "Exists"
+      containers:
+      - name: node-cache
+        image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        {{- if .Values.resources }}
+          resources: {{ toYaml .Values.resources | nindent 8 }}
+        {{- end }}
+        args: [ "-localip", "__PILLAR__LOCAL__DNS__,__PILLAR__DNS__SERVER__", "-conf", "/etc/Corefile", "-upstreamsvc", "{{ .corednsServiceName }}" ]
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - NET_BIND_SERVICE
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+        ports:
+        - containerPort: {{ .Values.ports.dns.targetPort }}
+          name: {{ .Values.ports.dns.name }}
+          protocol: UDP
+        - containerPort: {{ .Values.ports.dns.targetPort }}
+          name: {{ .Values.ports.dns.name }}-tcp
+          protocol: TCP
+        - containerPort: {{ .Values.ports.prometheus }}
+          name: metrics
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            host: __PILLAR__LOCAL__DNS__
+            path: /health
+            port: {{ .Values.ports.liveness }}
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+        volumeMounts:
+        - mountPath: /run/xtables.lock
+          name: xtables-lock
+          readOnly: false
+        - name: config-volume
+          mountPath: /etc/coredns
+        - name: kube-dns-config
+          mountPath: /etc/kube-dns
+      volumes:
+      - name: xtables-lock
+        hostPath:
+          path: /run/xtables.lock
+          type: FileOrCreate
+      - name: kube-dns-config
+        configMap:
+          name: kube-dns
+          optional: true
+      - name: config-volume
+        configMap:
+          name: {{ .Values.name }}
+          items:
+            - key: Corefile
+              path: Corefile.base
