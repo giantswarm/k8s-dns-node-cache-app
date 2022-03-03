@@ -6,9 +6,6 @@ name: k8s-dns-node-cache
 namespace: kube-system
 serviceType: managed
 
-# This is the name of the Kubernetes Service resource that exposes the traditional CoreDNS service within the cluster.
-corednsServiceName: coredns
-
 image:
   registry: quay.io
   name: giantswarm/k8s-dns-node-cache
@@ -33,6 +30,11 @@ ports:
     port: 53
   prometheus: 9253
   liveness: 8080
+
+# Reference of the traditional coredns pods.
+upstreamService:
+  targetPort: 1053
+  appName: coredns
 
 resources:
   limits:
