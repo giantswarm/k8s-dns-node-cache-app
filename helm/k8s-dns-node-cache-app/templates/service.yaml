@@ -1,3 +1,5 @@
+# A headless service is a service with a service IP but instead of load-balancing it will return the IPs of our associated Pods.
+# We use this to expose metrics to Prometheus.
 apiVersion: v1
 kind: Service
 metadata:
@@ -8,13 +10,8 @@ metadata:
 spec:
   selector:
     k8s-app: {{ .Values.name }}
-  clusterIP: {{ .Values.cluster.kubernetes.DNS.IP }}
+  clusterIP: None
   ports:
-  - name: {{ .Values.ports.dns.name }}
-    port: {{ .Values.ports.dns.port }}
-    targetPort: {{ .Values.ports.dns.targetPort }}
-    protocol: UDP
-  - name: {{ .Values.ports.dns.name }}-tcp
-    port: {{ .Values.ports.dns.port }}
-    targetPort: {{ .Values.ports.dns.targetPort }}
-    protocol: TCP
+  - name: metrics
+    port: {{ .Values.ports.prometheus }}
+    targetPort: {{ .Values.ports.prometheus }}
