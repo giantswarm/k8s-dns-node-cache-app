@@ -21,6 +21,14 @@ updateStrategy:
   rollingUpdate:
     maxUnavailable: 10%
 
+cluster:
+  kubernetes:
+    DNS:
+      IP: 172.31.0.10
+    clusterDomain: cluster.local
+
+nodeLocalListenAddress: 169.254.0.1
+
 ports:
   dns:
     name: dns
@@ -31,11 +39,11 @@ ports:
 
 resources:
   limits:
-    cpu: 50m
-    memory: 15Mi
+    cpu: 500m
+    memory: 150Mi
   requests:
-    cpu: 25m
-    memory: 5Mi
+    cpu: 250m
+    memory: 50Mi
 
 configmap:
   cache:

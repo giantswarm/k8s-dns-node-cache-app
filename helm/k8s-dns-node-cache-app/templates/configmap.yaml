@@ -7,7 +7,7 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 data:
   Corefile: |
-    __PILLAR__DNS__DOMAIN__:{{ .Values.ports.dns.targetPort }} {
+    {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.ports.dns.targetPort }} {
         errors
         cache {
                 success 9984 {{ .Values.configmap.cache.success }}
@@ -15,19 +15,19 @@ data:
         }
         reload
         loop
-        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        bind {{ .Values.nodeLocalListenAddress }} {{ .Values.cluster.kubernetes.DNS.IP }}
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
         prometheus :{{ .Values.ports.prometheus }}
-        health __PILLAR__LOCAL__DNS__:{{ .Values.ports.liveness }}
+        health {{ .Values.nodeLocalListenAddress }}:{{ .Values.ports.liveness }}
     }
     in-addr.arpa:{{ .Values.ports.dns.targetPort }} {
         errors
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
-        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        bind {{ .Values.nodeLocalListenAddress }} {{ .Values.cluster.kubernetes.DNS.IP }}
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
@@ -38,7 +38,7 @@ data:
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
-        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        bind {{ .Values.nodeLocalListenAddress }} {{ .Values.cluster.kubernetes.DNS.IP }}
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
@@ -49,7 +49,7 @@ data:
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
-        bind __PILLAR__LOCAL__DNS__ __PILLAR__DNS__SERVER__
+        bind {{ .Values.nodeLocalListenAddress }} {{ .Values.cluster.kubernetes.DNS.IP }}
         forward . __PILLAR__UPSTREAM__SERVERS__
         prometheus :{{ .Values.ports.prometheus }}
     }

@@ -41,7 +41,7 @@ spec:
         {{- if .Values.resources }}
         resources: {{ toYaml .Values.resources | nindent 8 }}
         {{- end }}
-        args: [ "-localip", "__PILLAR__LOCAL__DNS__,__PILLAR__DNS__SERVER__", "-conf", "/etc/Corefile", "-upstreamsvc", "{{ .corednsServiceName }}" ]
+        args: [ "-localip", "{{ .Values.nodeLocalListenAddress }},{{ .Values.cluster.kubernetes.DNS.IP }}", "-conf", "/etc/Corefile", "-upstreamsvc", "{{ .corednsServiceName }}" ]
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -62,7 +62,7 @@ spec:
           protocol: TCP
         livenessProbe:
           httpGet:
-            host: __PILLAR__LOCAL__DNS__
+            host: {{ .Values.nodeLocalListenAddress }}
             path: /health
             port: {{ .Values.ports.liveness }}
           initialDelaySeconds: 60
