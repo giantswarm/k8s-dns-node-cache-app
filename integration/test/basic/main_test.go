@@ -20,7 +20,7 @@ const (
 	app           = "k8s-dns-node-cache-test"
 	appName       = "k8s-dns-node-cache-app"
 	catalogName   = "giantswarm-playground-test"
-	testNamespace = "default"
+	testNamespace = "kube-system"
 )
 
 var (

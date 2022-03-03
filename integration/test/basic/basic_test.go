@@ -41,7 +41,7 @@ func checkReadyDaemonset(ctx context.Context) error {
 		if err != nil {
 			return microerror.Mask(err)
 		} else if len(daemonsets.Items) == 0 {
-			return microerror.Maskf(executionFailedError, "daemonset with label%#q in %#q not found", app, testNamespace)
+			return microerror.Maskf(executionFailedError, "daemonset with label %#q in %#q not found", selector, testNamespace)
 		}
 
 		ds := daemonsets.Items[0]
