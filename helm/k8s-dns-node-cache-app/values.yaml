@@ -14,7 +14,7 @@ corednsServiceName: coredns
 
 image:
   registry: quay.io
-  name: k8s-dns-node-cache
+  name: giantswarm/k8s-dns-node-cache
   tag: 1.21.4
 
 updateStrategy:
