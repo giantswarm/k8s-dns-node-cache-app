@@ -32,7 +32,7 @@ func checkReadyDaemonset(ctx context.Context) error {
 	l.LogCtx(ctx, "level", "debug", "message", "waiting for ready daemonset")
 
 	o := func() error {
-		selector := fmt.Sprintf("%s=%s", "app.kubernetes.io/name", app)
+		selector := fmt.Sprintf("%s=%s", "k8s-app", app)
 		lo := metav1.ListOptions{
 			LabelSelector: selector,
 		}
