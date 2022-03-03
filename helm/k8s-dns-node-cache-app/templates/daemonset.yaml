@@ -23,8 +23,8 @@ spec:
     spec:
       priorityClassName: system-node-critical
       securityContext:
-        runAsUser: {{ .Values.userID }}
-        runAsGroup: {{ .Values.groupID }}
+        runAsUser: 0
+        runAsGroup: 0
       serviceAccountName: {{ .Values.name }}
       hostNetwork: true
       dnsPolicy: Default  # Don't use cluster DNS.
@@ -43,13 +43,7 @@ spec:
         {{- end }}
         args: [ "-localip", "{{ .Values.nodeLocalListenAddress }},{{ .Values.cluster.kubernetes.DNS.IP }}", "-conf", "/etc/Corefile", "-upstreamsvc", "{{ .corednsServiceName }}" ]
         securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            add:
-            - NET_BIND_SERVICE
-            drop:
-            - all
-          readOnlyRootFilesystem: true
+          privileged: true
         ports:
         - containerPort: {{ .Values.ports.dns.targetPort }}
           name: {{ .Values.ports.dns.name }}

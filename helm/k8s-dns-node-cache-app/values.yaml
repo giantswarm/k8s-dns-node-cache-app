@@ -6,9 +6,6 @@ name: k8s-dns-node-cache
 namespace: kube-system
 serviceType: managed
 
-userID: 33
-groupID: 33
-
 # This is the name of the Kubernete Service resource that exposes the traditional CoreDNS service within the cluster.
 corednsServiceName: coredns
 
