@@ -6,7 +6,7 @@ name: k8s-dns-node-cache
 namespace: kube-system
 serviceType: managed
 
-# This is the name of the Kubernete Service resource that exposes the traditional CoreDNS service within the cluster.
+# This is the name of the Kubernetes Service resource that exposes the traditional CoreDNS service within the cluster.
 corednsServiceName: coredns
 
 image:
@@ -24,7 +24,7 @@ cluster:
       IP: 172.31.0.10
     clusterDomain: cluster.local
 
-nodeLocalListenAddress: 169.254.0.1
+nodeLocalListenAddress: 169.254.20.10
 
 ports:
   dns:
