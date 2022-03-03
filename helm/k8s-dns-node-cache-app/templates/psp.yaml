@@ -1,4 +1,4 @@
-apiVersion: policy/v1beta1
+apiVersion: policy/v1
 kind: PodSecurityPolicy
 metadata:
   name: {{ .Values.name }}
@@ -14,9 +14,15 @@ spec:
   volumes:
     - 'configMap'
     - 'hostPath'
+    - 'projected'
   hostNetwork: true
   hostIPC: false
   hostPID: false
+  hostPorts:
+  - min: {{ .Values.ports.dns.targetPort }}
+    max: {{ .Values.ports.dns.targetPort }}
+  - min: {{ .Values.ports.prometheus }}
+    max: {{ .Values.ports.prometheus }}
   runAsUser:
     rule: 'MustRunAsNonRoot'
   seLinux:

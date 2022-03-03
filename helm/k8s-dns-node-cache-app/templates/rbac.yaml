@@ -3,7 +3,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ .Values.name }}-psp-user
+  name: {{ .Values.name }}
   labels:
     {{- include "labels.common" . | nindent 4 }}
 rules:
@@ -19,7 +19,7 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ .Values.name }}-psp
+  name: {{ .Values.name }}
   labels:
     {{- include "labels.common" . | nindent 4 }}
 subjects:
@@ -28,5 +28,5 @@ subjects:
   namespace: {{ .Values.namespace }}
 roleRef:
   kind: ClusterRole
-  name: {{ .Values.name }}-psp-user
+  name: {{ .Values.name }}
   apiGroup: rbac.authorization.k8s.io
