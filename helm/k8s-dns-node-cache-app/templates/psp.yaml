@@ -7,7 +7,7 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 spec:
   privileged: true
-  allowPrivilegeEscalation: false
+  allowPrivilegeEscalation: true
   allowedCapabilities: []
   volumes:
     - 'configMap'

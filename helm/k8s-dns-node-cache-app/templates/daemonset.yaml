@@ -43,6 +43,7 @@ spec:
         {{- end }}
         args: [ "-localip", "{{ .Values.nodeLocalListenAddress }},{{ .Values.cluster.kubernetes.DNS.IP }}", "-conf", "/etc/Corefile", "-upstreamsvc", "{{ .corednsServiceName }}" ]
         securityContext:
+          allowPrivilegeEscalation: true
           privileged: true
         ports:
         - containerPort: {{ .Values.ports.dns.targetPort }}
