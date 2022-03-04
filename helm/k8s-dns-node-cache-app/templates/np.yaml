@@ -11,15 +11,10 @@ spec:
       k8s-app: {{ .Values.name }}
   ingress:
   - ports:
-    - port: {{ .Values.ports.dns.targetPort }}
+    - port: {{ .Values.upstreamService.servicePort }}
       protocol: UDP
-    - port: {{ .Values.ports.dns.targetPort }}
+    - port: {{ .Values.upstreamService.servicePort }}
       protocol: TCP
-    - port: {{ .Values.ports.dns.port }}
-      protocol: UDP
-    - port: {{ .Values.ports.dns.port }}
-      protocol: TCP
-  - ports:
     - port: {{ .Values.ports.prometheus }}
       protocol: TCP
   egress:

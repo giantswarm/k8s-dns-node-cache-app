@@ -46,11 +46,11 @@ spec:
           allowPrivilegeEscalation: true
           privileged: true
         ports:
-        - containerPort: {{ .Values.ports.dns.targetPort }}
-          name: {{ .Values.ports.dns.name }}
+        - containerPort: {{ .Values.upstreamService.servicePort }}
+          name: udp
           protocol: UDP
-        - containerPort: {{ .Values.ports.dns.targetPort }}
-          name: {{ .Values.ports.dns.name }}-tcp
+        - containerPort: {{ .Values.upstreamService.servicePort }}
+          name: tcp
           protocol: TCP
         - containerPort: {{ .Values.ports.prometheus }}
           name: metrics

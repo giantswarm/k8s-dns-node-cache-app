@@ -7,7 +7,7 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 data:
   Corefile: |
-    {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.ports.dns.targetPort }} {
+    {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {
                 success 9984 {{ .Values.configmap.cache.success }}
@@ -22,7 +22,7 @@ data:
         prometheus :{{ .Values.ports.prometheus }}
         health {{ .Values.nodeLocalListenAddress }}:{{ .Values.ports.liveness }}
     }
-    in-addr.arpa:{{ .Values.ports.dns.targetPort }} {
+    in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {{ .Values.configmap.cache.success }}
         reload
@@ -33,7 +33,7 @@ data:
         }
         prometheus :{{ .Values.ports.prometheus }}
     }
-    ip6.arpa:{{ .Values.ports.dns.targetPort }} {
+    ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {{ .Values.configmap.cache.success }}
         reload
@@ -44,7 +44,7 @@ data:
         }
         prometheus :{{ .Values.ports.prometheus }}
     }
-    .:{{ .Values.ports.dns.targetPort }} {
+    .:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {{ .Values.configmap.cache.success }}
         reload
@@ -53,4 +53,3 @@ data:
         forward . __PILLAR__UPSTREAM__SERVERS__
         prometheus :{{ .Values.ports.prometheus }}
     }
-

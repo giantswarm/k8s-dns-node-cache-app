@@ -17,8 +17,8 @@ spec:
   hostIPC: false
   hostPID: false
   hostPorts:
-  - min: {{ .Values.ports.dns.targetPort }}
-    max: {{ .Values.ports.dns.targetPort }}
+  - min: {{ .Values.upstreamService.servicePort }}
+    max: {{ .Values.upstreamService.servicePort }}
   - min: {{ .Values.ports.prometheus }}
     max: {{ .Values.ports.prometheus }}
   runAsUser:
