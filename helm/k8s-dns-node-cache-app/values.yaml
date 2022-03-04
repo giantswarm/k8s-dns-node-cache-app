@@ -26,7 +26,7 @@ nodeLocalListenAddress: 169.254.20.10
 ports:
   dns:
     name: dns
-    targetPort: 1053
+    targetPort: 53
     port: 53
   prometheus: 9253
   liveness: 8080
