@@ -52,41 +52,6 @@ metadata:
       port: 1053
 ```
 
-## Performance improvements
-
-Without the `k8s-dns-node-cache` app installed:
-
-```
-DNS Performance Testing Tool
-Version 2.2.1
-
-[Status] Command line: dnsperf -l 300 -s 172.31.0.10 -Q 1000 -d /opt/records.txt
-[Status] Sending queries (to 172.31.0.10)
-[Status] Started at: Fri Mar  4 10:40:50 2022
-[Status] Stopping after 300.000000 seconds
-[Status] Testing complete (time limit)
-
-Statistics:
-
-  Queries sent:         300000
-  Queries completed:    300000 (100.00%)
-  Queries lost:         0 (0.00%)
-
-  Response codes:       NOERROR 300000 (100.00%)
-  Average packet size:  request 55, response 108
-  Run time (s):         300.000111
-  Queries per second:   999.999630
-
-  Average Latency (s):  0.000129 (min 0.000066, max 0.018556)
-  Latency StdDev (s):   0.000146
-
-```
-
-With the `k8s-dns-node-cache` app installed:
-```
-
-```
-
 ## Known issues and limitations
 
 - The upstream application only works with `kube-proxy`-based clusters. It will NOT work when using other `Kubernetes Service` implementations such as `Cilium` for example.

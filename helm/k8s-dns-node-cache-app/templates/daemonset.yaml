@@ -41,7 +41,19 @@ spec:
         {{- if .Values.resources }}
         resources: {{ toYaml .Values.resources | nindent 8 }}
         {{- end }}
-        args: [ "-localip", "{{ .Values.nodeLocalListenAddress }},{{ .Values.cluster.kubernetes.DNS.IP }}", "-conf", "/etc/Corefile", "-upstreamsvc", "{{ .Values.name }}-upstream" ]
+        args:
+        - "-localip"
+        - "{{ .Values.nodeLocalListenAddress }},{{ .Values.cluster.kubernetes.DNS.IP }}"
+        - "-conf"
+        - "/etc/Corefile"
+        - "-upstreamsvc"
+        - "{{ .Values.name }}-upstream"
+        - -dns.port
+        - "{{ .Values.upstreamService.servicePort }}"
+        - -health-port
+        - "{{ .Values.ports.liveness }}"
+        - -metrics-listen-address
+        - "0.0.0.0:{{ .Values.ports.prometheus }}"
         securityContext:
           allowPrivilegeEscalation: true
           privileged: true
