@@ -9,8 +9,8 @@ workflows:
       - architect/push-to-app-catalog:
           context: architect
           name: "push-to-playground-app-catalog"
-          app_catalog: "playground-catalog"
-          app_catalog_test: "playground-test-catalog"
+          app_catalog: "giantswarm-playground-catalog"
+          app_catalog_test: "giantswarm-playground-test-catalog"
           chart: "k8s-dns-node-cache-app"
           filters:
             # Trigger the job also on git tag.
