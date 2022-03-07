@@ -21,8 +21,6 @@ cluster:
       IP: 172.31.0.10
     clusterDomain: cluster.local
 
-nodeLocalListenAddress: 169.254.20.10
-
 ports:
   prometheus: 9253
   liveness: 8080

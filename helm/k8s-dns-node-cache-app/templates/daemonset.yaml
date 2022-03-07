@@ -38,7 +38,7 @@ spec:
         {{- end }}
         args:
         - "-localip"
-        - "{{ .Values.nodeLocalListenAddress }},{{ .Values.cluster.kubernetes.DNS.IP }}"
+        - "{{ .Values.cluster.kubernetes.DNS.IP }}"
         - "-conf"
         - "/etc/Corefile"
         - "-upstreamsvc"
@@ -64,7 +64,7 @@ spec:
           protocol: TCP
         livenessProbe:
           httpGet:
-            host: {{ .Values.nodeLocalListenAddress }}
+            host: {{ .Values.cluster.kubernetes.DNS.IP }}
             path: /health
             port: {{ .Values.ports.liveness }}
           initialDelaySeconds: 60
