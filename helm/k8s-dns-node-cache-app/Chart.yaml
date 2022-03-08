@@ -4,8 +4,8 @@ description: A Helm chart to run NodeLocal DNSCache in Kubernetes clusters
 home: https://github.com/giantswarm/k8s-dns-node-cache-app
 name: k8s-dns-node-cache-app
 version: [[ .Version ]]
-restrictions:  # our custom section (optional)
+restrictions:
   clusterSingleton: true
   fixedNamespace: kube-system
   gpuInstances: false
-  compatibleProviders: [aws,azure] # optional; empty means compatible by default with every provider
+  compatibleProviders: [ aws, azure ]
