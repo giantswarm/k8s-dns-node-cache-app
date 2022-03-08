@@ -8,4 +8,4 @@ restrictions:
   clusterSingleton: true
   fixedNamespace: kube-system
   gpuInstances: false
-  compatibleProviders: [ aws, azure ]
+  compatibleProviders: [aws, azure]
