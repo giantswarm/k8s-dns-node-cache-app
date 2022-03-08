@@ -25,7 +25,6 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: {{ .Values.name }}
-  namespace: {{ .Values.namespace }}
 roleRef:
   kind: ClusterRole
   name: {{ .Values.name }}
