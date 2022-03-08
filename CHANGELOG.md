@@ -7,8 +7,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.1.0] - 2022-03-08
+
 ### Added
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.0.0...v0.1.0
