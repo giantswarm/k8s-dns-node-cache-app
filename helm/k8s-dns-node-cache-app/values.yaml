@@ -3,7 +3,6 @@
 # Declare variables to be passed into your templates.
 
 name: k8s-dns-node-cache
-namespace: kube-system
 serviceType: managed
 
 image:
