@@ -57,3 +57,4 @@ metadata:
 - After removing the application previously installed in the cluster, it might take some time for the injected `iptables` rules to be deleted. 
   While that happens, DNS queries will fail for all pods running in that node will fail. We suggest rolling or rebooting all nodes after deleting this app.
 - This application makes `net-exporter` <= v1.10.3 probes fail and thus makes clusters page.
+- This application does NOT work and breaks networking on AWS clusters (suspect conflict with AWS CNI).
