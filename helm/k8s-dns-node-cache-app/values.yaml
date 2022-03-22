@@ -46,6 +46,9 @@ configmap:
     success: 30
     denial: 5
 
+verticalPodAutoscaler:
+  enabled: true
+
 test:
   image:
     name: giantswarm/alpine-testing
