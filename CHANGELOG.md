@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Use `kube-system` as namespace.
+
 ## [0.2.0] - 2022-03-22
 
 ### Added
