@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Separate coredns and node-cache metric ports.
+
 ## [0.3.0] - 2022-04-19
 
 ### Changed

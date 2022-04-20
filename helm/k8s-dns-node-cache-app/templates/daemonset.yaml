@@ -48,7 +48,7 @@ spec:
         - -health-port
         - "{{ .Values.ports.liveness }}"
         - -metrics-listen-address
-        - "0.0.0.0:{{ .Values.ports.prometheus }}"
+        - "0.0.0.0:{{ .Values.ports.prometheus.nodecache }}"
         securityContext:
           allowPrivilegeEscalation: true
           privileged: true
@@ -59,8 +59,11 @@ spec:
         - containerPort: {{ .Values.upstreamService.servicePort }}
           name: tcp
           protocol: TCP
-        - containerPort: {{ .Values.ports.prometheus }}
+        - containerPort: {{ .Values.ports.prometheus.nodecache }}
           name: metrics
+          protocol: TCP
+        - containerPort: {{ .Values.ports.prometheus.coredns }}
+          name: corednsmetrics
           protocol: TCP
         livenessProbe:
           httpGet:
