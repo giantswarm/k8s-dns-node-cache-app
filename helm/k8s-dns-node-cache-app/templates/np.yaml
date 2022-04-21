@@ -15,7 +15,9 @@ spec:
       protocol: UDP
     - port: {{ .Values.upstreamService.servicePort }}
       protocol: TCP
-    - port: {{ .Values.ports.prometheus }}
+    - port: {{ .Values.ports.prometheus.coredns }}
+      protocol: TCP
+    - port: {{ .Values.ports.prometheus.nodecache }}
       protocol: TCP
   egress:
   - {}

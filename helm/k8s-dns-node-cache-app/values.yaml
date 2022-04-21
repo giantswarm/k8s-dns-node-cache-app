@@ -22,7 +22,9 @@ cluster:
     clusterDomain: cluster.local
 
 ports:
-  prometheus: 9253
+  prometheus:
+    nodecache: 9253
+    coredns: 9254
   liveness: 8080
 
 # Reference of the traditional coredns pods.

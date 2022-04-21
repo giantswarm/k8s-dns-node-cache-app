@@ -19,7 +19,7 @@ data:
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
-        prometheus :{{ .Values.ports.prometheus }}
+        prometheus :{{ .Values.ports.prometheus.coredns }}
         health {{ .Values.cluster.kubernetes.DNS.IP }}:{{ .Values.ports.liveness }}
     }
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
@@ -31,7 +31,7 @@ data:
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
-        prometheus :{{ .Values.ports.prometheus }}
+        prometheus :{{ .Values.ports.prometheus.coredns }}
     }
     ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
@@ -42,7 +42,7 @@ data:
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
-        prometheus :{{ .Values.ports.prometheus }}
+        prometheus :{{ .Values.ports.prometheus.coredns }}
     }
     .:{{ .Values.upstreamService.servicePort }} {
         errors
@@ -51,5 +51,5 @@ data:
         loop
         bind {{ .Values.cluster.kubernetes.DNS.IP }}
         forward . __PILLAR__UPSTREAM__SERVERS__
-        prometheus :{{ .Values.ports.prometheus }}
+        prometheus :{{ .Values.ports.prometheus.coredns }}
     }

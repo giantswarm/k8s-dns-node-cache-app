@@ -19,8 +19,10 @@ spec:
   hostPorts:
   - min: {{ .Values.upstreamService.servicePort }}
     max: {{ .Values.upstreamService.servicePort }}
-  - min: {{ .Values.ports.prometheus }}
-    max: {{ .Values.ports.prometheus }}
+  - min: {{ .Values.ports.prometheus.nodecache }}
+    max: {{ .Values.ports.prometheus.nodecache }}
+  - min: {{ .Values.ports.prometheus.coredns }}
+    max: {{ .Values.ports.prometheus.coredns }}
   runAsUser:
     rule: 'RunAsAny'
   seLinux:

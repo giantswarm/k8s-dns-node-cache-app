@@ -8,14 +8,14 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
     giantswarm.io/monitoring: "true"
-  annotations:
-    giantswarm.io/monitoring-path: /metrics
-    giantswarm.io/monitoring-port: "{{ .Values.ports.prometheus }}"
 spec:
   selector:
     k8s-app: {{ .Values.name }}
   clusterIP: None
   ports:
   - name: metrics
-    port: {{ .Values.ports.prometheus }}
-    targetPort: {{ .Values.ports.prometheus }}
+    port: {{ .Values.ports.prometheus.nodecache }}
+    targetPort: {{ .Values.ports.prometheus.nodecache }}
+  - name: coredns
+    port: {{ .Values.ports.prometheus.coredns }}
+    targetPort: {{ .Values.ports.prometheus.coredns }}
