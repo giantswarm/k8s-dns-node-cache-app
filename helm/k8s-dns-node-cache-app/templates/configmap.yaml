@@ -50,6 +50,6 @@ data:
         reload
         loop
         bind {{ .Values.cluster.kubernetes.DNS.IP }}
-        forward . __PILLAR__UPSTREAM__SERVERS__
+        forward . __PILLAR__CLUSTER__DNS__
         prometheus :{{ .Values.ports.prometheus.coredns }}
     }

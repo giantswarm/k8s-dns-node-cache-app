@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Use CoreDNS as upstream in order to avoid double configuration for internal domains.
+
 ## [0.4.0] - 2022-04-21
 
 ### Changed
