@@ -9,7 +9,7 @@ serviceType: managed
 image:
   registry: quay.io
   name: giantswarm/k8s-dns-node-cache
-  tag: 1.21.4
+  tag: 1.22.13
 
 updateStrategy:
   rollingUpdate:
