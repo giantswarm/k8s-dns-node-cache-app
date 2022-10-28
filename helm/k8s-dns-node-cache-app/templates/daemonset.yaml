@@ -17,9 +17,6 @@ spec:
         giantswarm.io/monitoring: "true"
     spec:
       priorityClassName: system-node-critical
-      securityContext:
-        runAsUser: 0
-        runAsGroup: 0
       serviceAccountName: {{ .Values.name }}
       hostNetwork: true
       dnsPolicy: Default  # Don't use cluster DNS.
@@ -50,8 +47,9 @@ spec:
         - -metrics-listen-address
         - "0.0.0.0:{{ .Values.ports.prometheus.nodecache }}"
         securityContext:
-          allowPrivilegeEscalation: true
-          privileged: true
+          capabilities:
+            add:
+            - NET_ADMIN
         ports:
         - containerPort: {{ .Values.ports.prometheus.nodecache }}
           name: metrics
