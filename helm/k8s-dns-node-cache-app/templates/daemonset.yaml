@@ -31,7 +31,7 @@ spec:
       - name: node-cache
         image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         {{- if .Values.resources }}
-        resources: {{ toYaml .Values.resources | nindent 8 }}
+        resources: {{ toYaml .Values.resources | nindent 10 }}
         {{- end }}
         args:
         - "-localip"
