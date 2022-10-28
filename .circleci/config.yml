@@ -8,9 +8,9 @@ workflows:
     jobs:
       - architect/push-to-app-catalog:
           context: architect
-          name: "push-to-playground-app-catalog"
-          app_catalog: "giantswarm-playground-catalog"
-          app_catalog_test: "giantswarm-playground-test-catalog"
+          name: "push-to-managed-app-catalog"
+          app_catalog: "giantswarm-catalog"
+          app_catalog_test: "giantswarm-test-catalog"
           chart: "k8s-dns-node-cache-app"
           filters:
             # Trigger the job also on git tag.
@@ -28,5 +28,5 @@ workflows:
               ignore:
                 - master
           requires:
-            - push-to-playground-app-catalog
+            - push-to-app-catalog
 
