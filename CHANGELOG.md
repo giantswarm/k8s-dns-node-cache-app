@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [1.0.0] - 2022-10-31
+
 ### Changed
 
 - Use CoreDNS as upstream in order to avoid double configuration for internal domains.
@@ -35,7 +37,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.4.0...v1.0.0
 [0.4.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.1.0...v0.2.0
