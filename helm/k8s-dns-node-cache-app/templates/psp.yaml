@@ -6,9 +6,8 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
-  privileged: true
-  allowPrivilegeEscalation: true
-  allowedCapabilities: []
+  allowedCapabilities: 
+    - 'NET_ADMIN'
   volumes:
     - 'configMap'
     - 'hostPath'

@@ -19,7 +19,7 @@ import (
 const (
 	app           = "k8s-dns-node-cache-test"
 	appName       = "k8s-dns-node-cache-app"
-	catalogName   = "giantswarm-playground-test"
+	catalogName   = "giantswarm-test"
 	testNamespace = "kube-system"
 )
 
