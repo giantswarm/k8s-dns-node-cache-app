@@ -15,19 +15,19 @@ data:
         }
         reload
         loop
-        bind {{ .Values.cluster.kubernetes.DNS.IP }}
+        bind 0.0.0.0
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
         prometheus :{{ .Values.ports.prometheus.coredns }}
-        health {{ .Values.cluster.kubernetes.DNS.IP }}:{{ .Values.ports.liveness }}
+        health 0.0.0.0:{{ .Values.ports.liveness }}
     }
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
-        bind {{ .Values.cluster.kubernetes.DNS.IP }}
+        bind 0.0.0.0
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
@@ -38,7 +38,7 @@ data:
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
-        bind {{ .Values.cluster.kubernetes.DNS.IP }}
+        bind 0.0.0.0
         forward . __PILLAR__CLUSTER__DNS__ {
                 force_tcp
         }
@@ -49,7 +49,7 @@ data:
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
-        bind {{ .Values.cluster.kubernetes.DNS.IP }}
+        bind 0.0.0.0
         forward . __PILLAR__CLUSTER__DNS__
         prometheus :{{ .Values.ports.prometheus.coredns }}
     }
