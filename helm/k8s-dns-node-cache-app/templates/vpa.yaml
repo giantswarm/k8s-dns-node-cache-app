@@ -12,9 +12,6 @@ spec:
     containerPolicies:
     - containerName: node-cache
       controlledValues: RequestsAndLimits
-      maxAllowed:
-        cpu: 100m
-        memory: 50Mi
       minAllowed:
         cpu: 50m
         memory: 25Mi
