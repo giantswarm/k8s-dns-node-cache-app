@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## Changed
+
+- Added minAllowed CPU and memory to sensible default for node-cache pod. See [PR 21](https://github.com/giantswarm/k8s-dns-node-cache-app/pull/21)
+
 ## [1.0.0] - 2022-10-31
 
 ### Changed
