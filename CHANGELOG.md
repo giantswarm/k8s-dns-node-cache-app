@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-01-11
+
 ## Changed
 
 - Add app to the `default` app catalog.
@@ -47,7 +49,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.4.0...v1.0.0
 [0.4.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v0.3.0...v0.4.0
