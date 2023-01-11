@@ -12,7 +12,9 @@ spec:
     containerPolicies:
     - containerName: node-cache
       controlledValues: RequestsAndLimits
-      mode: Auto
+      minAllowed:
+        cpu: 50m
+        memory: 25Mi
   targetRef:
     apiVersion: apps/v1
     kind: DaemonSet
