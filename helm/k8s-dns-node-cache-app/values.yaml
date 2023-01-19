@@ -38,6 +38,13 @@ upstreamService:
   # The value of the `k8s-app` label for the traditional coredns pods.
   appName: coredns
 
+# Needs to be set to true when cluster is running cilium in kube-proxy-free mode.
+enableCiliumLocalRedirectPolicy: false
+
+# If set to false prevents the iptable rules from being set (needs enableCiliumLocalRedirectPolicy=true).
+# Required when kube-proxy is used in the cluster.
+enableIptablesRules: true
+
 resources:
   limits:
     cpu: 500m

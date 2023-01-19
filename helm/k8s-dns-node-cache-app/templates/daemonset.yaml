@@ -47,7 +47,9 @@ spec:
         - "0.0.0.0:{{ .Values.ports.prometheus.nodecache }}"
         - -skipteardown=true
         - -setupinterface=false
+        {{ if and .Values.enableCiliumLocalRedirectPolicy (not .Values.enableIptablesRules) }}
         - -setupiptables=false
+        {{ end }}
         securityContext:
           capabilities:
             add:

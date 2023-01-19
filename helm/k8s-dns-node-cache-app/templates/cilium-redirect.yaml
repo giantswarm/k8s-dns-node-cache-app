@@ -1,3 +1,4 @@
+{{ if .Values.enableCiliumLocalRedirectPolicy }}
 apiVersion: cilium.io/v2
 kind: CiliumLocalRedirectPolicy
 metadata:
@@ -21,3 +22,4 @@ spec:
       - port: "53"
         name: dns-tcp
         protocol: TCP
+{{ end }}
