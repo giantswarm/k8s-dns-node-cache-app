@@ -14,12 +14,12 @@ spec:
   redirectBackend:
     localEndpointSelector:
       matchLabels:
-        app.kubernetes.io/name: {{ .Values.name }}
+        {{- include "labels.selector" . | nindent 8 }}
     toPorts:
-      - port: "53"
+      - port: "{{ .Values.upstreamService.servicePort }}"
         name: dns
         protocol: UDP
-      - port: "53"
+      - port: "{{ .Values.upstreamService.servicePort }}"
         name: dns-tcp
         protocol: TCP
 {{ end }}
