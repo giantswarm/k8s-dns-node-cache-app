@@ -53,7 +53,7 @@ metadata:
 ## Known issues and limitations
 
 - The upstream application only works with `kube-proxy`-based clusters. It will NOT work when using other `Kubernetes Service` implementations such as `Cilium` for example.
-- This app only works with `kube-proxy` in `iptables` more. The upstream application works in `IPVS` mode as well, but the Giant Swarm app does not support that use case.
+- This app only works with `kube-proxy` in `iptables` mode. The upstream application works in `IPVS` mode as well, but the Giant Swarm app does not support that use case.
 - After removing the application previously installed in the cluster, it might take some time for the injected `iptables` rules to be deleted. 
   While that happens, DNS queries will fail for all pods running in that node will fail. We suggest rolling or rebooting all nodes after deleting this app.
 - This application makes `net-exporter` <= v1.10.3 probes fail and thus makes clusters page.

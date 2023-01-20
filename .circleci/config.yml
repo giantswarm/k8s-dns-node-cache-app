@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@4.25.3
+  architect: giantswarm/architect@4.27.0
 
 workflows:
   version: 2
@@ -11,6 +11,17 @@ workflows:
           name: "push-to-app-catalog"
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
+          chart: "k8s-dns-node-cache-app"
+          filters:
+            # Trigger the job also on git tag.
+            tags:
+              only: /^v.*/
+              
+      - architect/push-to-app-catalog:
+          context: architect
+          name: "push-to-default-app-catalog"
+          app_catalog: "default-catalog"
+          app_catalog_test: "default-test-catalog"
           chart: "k8s-dns-node-cache-app"
           filters:
             # Trigger the job also on git tag.
