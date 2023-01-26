@@ -10,6 +10,11 @@ This is translated to a kube-dns/CoreDNS endpoint via iptables rules added by ku
 With this new architecture, Pods will reach out to the dns caching agent running on the same node, thereby avoiding iptables DNAT rules and connection tracking.
 The local caching agent will query kube-dns service for cache misses of cluster hostnames(cluster.local suffix by default).
 
+## Release compatibility
+
+Release v1.x works in iptables mode only.
+Release v2.x works in cilium mode only.
+
 ## Installation and configuration
 
 This App is meant to be a drop-in add-on that can be installed with default configuration in any Giant Swarm cluster.
