@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@dev:kubeeval-customv
+  architect: giantswarm/architect@4.27.0
 
 workflows:
   version: 2
@@ -12,7 +12,6 @@ workflows:
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
           chart: "k8s-dns-node-cache-app"
-          kubernetes_versions_validate: "1.25.0"
           filters:
             # Trigger the job also on git tag.
             tags:
@@ -24,7 +23,6 @@ workflows:
           app_catalog: "default-catalog"
           app_catalog_test: "default-test-catalog"
           chart: "k8s-dns-node-cache-app"
-          kubernetes_versions_validate: "1.25.0"
           filters:
             # Trigger the job also on git tag.
             tags:
@@ -42,3 +40,4 @@ workflows:
                 - master
           requires:
             - push-to-app-catalog
+
