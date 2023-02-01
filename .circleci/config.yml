@@ -40,3 +40,4 @@ workflows:
                 - master
           requires:
             - push-to-app-catalog
+
