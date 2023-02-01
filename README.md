@@ -12,8 +12,8 @@ The local caching agent will query kube-dns service for cache misses of cluster 
 
 ## Release compatibility
 
-Release v1.x works in iptables mode only.
-Release v2.x works in cilium mode only.
+Release v1.x works in all CNIs using kubeproxy/iptables.
+Release v2.x works in Cilium CNI in EBPf mode.
 
 ## Installation and configuration
 

@@ -21,4 +21,3 @@ spec:
       - port: "{{ .Values.upstreamService.servicePort }}"
         name: dns-tcp
         protocol: TCP
-
