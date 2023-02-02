@@ -18,7 +18,6 @@ spec:
     spec:
       priorityClassName: system-node-critical
       serviceAccountName: {{ .Values.name }}
-      hostNetwork: true
       dnsPolicy: Default  # Don't use cluster DNS.
       tolerations:
       - key: "CriticalAddonsOnly"
@@ -35,7 +34,7 @@ spec:
         {{- end }}
         args:
         - "-localip"
-        - "{{ .Values.cluster.kubernetes.DNS.IP }}"
+        - "{{ .Values.cluster.kubernetes.LOCAL.IP }},{{ .Values.cluster.kubernetes.DNS.IP }}"
         - "-conf"
         - "/etc/Corefile"
         - "-upstreamsvc"
@@ -46,6 +45,9 @@ spec:
         - "{{ .Values.ports.liveness }}"
         - -metrics-listen-address
         - "0.0.0.0:{{ .Values.ports.prometheus.nodecache }}"
+        - -skipteardown=true
+        - -setupinterface=false
+        - -setupiptables=false
         securityContext:
           capabilities:
             add:
@@ -57,9 +59,14 @@ spec:
         - containerPort: {{ .Values.ports.prometheus.coredns }}
           name: corednsmetrics
           protocol: TCP
+        - containerPort: 53
+          name: dns
+          protocol: UDP
+        - containerPort: 53
+          name: dns-tcp
+          protocol: TCP
         livenessProbe:
           httpGet:
-            host: {{ .Values.cluster.kubernetes.DNS.IP }}
             path: /health
             port: {{ .Values.ports.liveness }}
           initialDelaySeconds: 60

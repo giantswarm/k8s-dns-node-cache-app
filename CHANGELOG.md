@@ -7,6 +7,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## Breaking change, application only compatible with Cilium from this release onwards.
+
+### Changed
+
+- Adapt application to be deployed on Cilium.
+
 ## [1.1.0] - 2023-01-11
 
 ## Changed
