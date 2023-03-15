@@ -3,14 +3,14 @@ kind: ServiceMonitor
 metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
-  name: {{ .Values.name }}-corednsmetrics
+  name: {{ .Values.name }}-coredns
   namespace: {{ .Values.namespace }}
 spec:
   endpoints:
     - honorLabels: true
       interval: 10s
       path: /metrics
-      port: corednsmetrics
+      port: coredns
       relabelings:
         - sourceLabels:
             - __meta_kubernetes_pod_node_name
