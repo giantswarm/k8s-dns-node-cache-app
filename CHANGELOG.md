@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.1.0] - 2023-03-15
+
 ### Changed
 
 - Switch to ServiceMonitors for metrics scraping.
@@ -61,7 +63,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v1.0.0...v1.0.1
