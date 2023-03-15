@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+  name: {{ .Values.name }}-coredns
+  namespace: {{ .Values.namespace }}
+spec:
+  endpoints:
+    - honorLabels: true
+      interval: 10s
+      path: /metrics
+      port: coredns
+      relabelings:
+        - sourceLabels:
+            - __meta_kubernetes_pod_node_name
+          targetLabel: node
+          replacement: ${1}
+        - sourceLabels:
+            - __meta_kubernetes_service_name
+          separator: ";"
+          regex: "(.*)"
+          targetLabel: app
+          replacement: $1
+          action: replace
+  namespaceSelector:
+    matchNames:
+      - kube-system
+  selector:
+    matchLabels:
+      {{- include "labels.selector" . | nindent 6 }}
