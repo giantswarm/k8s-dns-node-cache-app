@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Switch to ServiceMonitors for metrics scraping.
+
 ## [2.0.0] - 2023-02-02
 
 ## Breaking change, application only compatible with Cilium from this release onwards.
