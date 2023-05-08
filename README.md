@@ -31,6 +31,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-node-local-dns-for-my-app
+spec:
   podSelector:
     matchLabels:
       app: web
