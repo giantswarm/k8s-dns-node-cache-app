@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Allow customize the min allowed for node local dns agents.
+
 ## [2.1.0] - 2023-03-15
 
 ### Changed

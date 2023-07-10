@@ -53,6 +53,9 @@ configmap:
 
 verticalPodAutoscaler:
   enabled: true
+  minAllowed:
+    cpu: 50m
+    memory: 25Mi
 
 test:
   image:
