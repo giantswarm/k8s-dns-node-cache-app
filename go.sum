@@ -171,6 +171,8 @@ github.com/giantswarm/apptest v0.12.0/go.mod h1:DWmoBm1Q6ATWHXX9d3NPM54RQBI8aqco
 github.com/giantswarm/backoff v0.2.0/go.mod h1:Z3WRsFilSJ5H5VlFa4XhraoPr+9pmZgYasoY2OSfNOk=
 github.com/giantswarm/backoff v1.0.0 h1:1oeTvyPsm1tJrHlSmfxbIWuoCNWPOkWJCb8kfLvE2T0=
 github.com/giantswarm/backoff v1.0.0/go.mod h1:l/WqbggvG5Ndxxws0LUgVEvP5E82Qj5/PF8SMip/1QM=
+github.com/giantswarm/k8s-dns-node-cache-app v1.2.0 h1:kLJLogH7efgv2s7CeJ301iZvYD9LG8eA9/NnMT5qWG0=
+github.com/giantswarm/k8s-dns-node-cache-app v1.2.0/go.mod h1:AZFdW5yjKelpdu6dvC8IHBTVJjl2wqnNstbmoVJGdIs=
 github.com/giantswarm/k8smetadata v0.3.0/go.mod h1:k3DYCMdspxhk7efLkQdX1b8UZ71ijOCG3ZoIU8+5xgw=
 github.com/giantswarm/microerror v0.2.0/go.mod h1:1YtJq/m7Vlq1Y6NP7B+SODOKCGlG7e5wctV2OoE9n34=
 github.com/giantswarm/microerror v0.3.0/go.mod h1:g8oCEMFAoEs70riRRmj9+6eiz7SqNxYl+2OfxFh1po0=
