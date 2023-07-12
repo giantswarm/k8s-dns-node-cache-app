@@ -40,19 +40,16 @@ upstreamService:
 
 resources:
   limits:
-    cpu: 500m
-    memory: 150Mi
+    cpu: ""
+    memory: ""
   requests:
-    cpu: 250m
-    memory: 50Mi
+    cpu: 100m
+    memory: 100m
 
 configmap:
   cache:
     success: 30
     denial: 5
-
-verticalPodAutoscaler:
-  enabled: true
 
 test:
   image:

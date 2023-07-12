@@ -12,8 +12,8 @@ import (
 	"github.com/giantswarm/apptest"
 	"github.com/giantswarm/micrologger"
 
-	"github.com/giantswarm/k8s-dns-node-cache-app/integration/env"
-	"github.com/giantswarm/k8s-dns-node-cache-app/integration/templates"
+	"github.com/giantswarm/k8s-dns-node-cache-app/v2/integration/env"
+	"github.com/giantswarm/k8s-dns-node-cache-app/v2/integration/templates"
 )
 
 const (
