@@ -7,6 +7,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Disable IPV6 queries.
+- Remove VPA.
+- Remove resource limits.
+
 ## [2.1.0] - 2023-03-15
 
 ### Changed
