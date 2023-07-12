@@ -39,9 +39,6 @@ upstreamService:
   appName: coredns
 
 resources:
-  limits:
-    cpu: ""
-    memory: ""
   requests:
     cpu: 100m
     memory: 100m

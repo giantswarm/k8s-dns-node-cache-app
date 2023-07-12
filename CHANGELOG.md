@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Remove default limits.
+
 ## [2.2.0] - 2023-07-12
 
 ### Changed
