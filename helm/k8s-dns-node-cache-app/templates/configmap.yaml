@@ -61,6 +61,8 @@ data:
         reload
         loop
         bind 0.0.0.0
-        forward . __PILLAR__CLUSTER__DNS__
+        forward . __PILLAR__CLUSTER__DNS__ {
+                force_tcp
+        }
         prometheus :{{ .Values.ports.prometheus.coredns }}
     }
