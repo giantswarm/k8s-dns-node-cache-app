@@ -45,7 +45,7 @@ resources:
 
 configmap:
   cache:
-    success: 30
+    success: 3600
     denial: 5
 
 test:

@@ -13,6 +13,8 @@ data:
                 rcode NOERROR
         }
         cache {
+                success 9984 {{ .Values.configmap.cache.success }}
+                denial 9984 {{ .Values.configmap.cache.denial }}
                 prefetch 10 1m 20%
         }
         reload
@@ -26,7 +28,7 @@ data:
     }
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
-        cache {
+        cache {{ .Values.configmap.cache.success }} {
                 prefetch 10 1m 20%
         }
         reload
@@ -39,7 +41,7 @@ data:
     }
     ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
-        cache {
+        cache {{ .Values.configmap.cache.success }} {
                 prefetch 10 1m 20%
         }
         reload
@@ -55,7 +57,7 @@ data:
         template ANY AAAA {
                 rcode NOERROR
         }
-        cache {
+        cache {{ .Values.configmap.cache.success }} {
                 prefetch 10 1m 20%
         }
         reload
