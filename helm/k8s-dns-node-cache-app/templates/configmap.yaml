@@ -13,7 +13,7 @@ data:
                 rcode NOERROR
         }
         cache {
-          prefetch 10 1m 20%
+                prefetch 10 1m 20%
         }
         reload
         loop
@@ -27,7 +27,7 @@ data:
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {
-          prefetch 10 1m 20%
+                prefetch 10 1m 20%
         }
         reload
         loop
@@ -40,7 +40,7 @@ data:
     ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
         cache {
-          prefetch 10 1m 20%
+                prefetch 10 1m 20%
         }
         reload
         loop
@@ -56,7 +56,7 @@ data:
                 rcode NOERROR
         }
         cache {
-          prefetch 10 1m 20%
+                prefetch 10 1m 20%
         }
         reload
         loop
