@@ -7,6 +7,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade application to version 1.22.23 (includes coredns 1.10)
+- Enable TCP connections for external zones
+
 ## [2.3.1] - 2023-07-12
 
 ### Fix
