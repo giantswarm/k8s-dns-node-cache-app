@@ -27,7 +27,7 @@ data:
     }
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
-        cache {{ .Values.configmap.cache.success }} 
+        cache {{ .Values.configmap.cache.success }}
         reload
         loop
         bind 0.0.0.0
@@ -38,7 +38,7 @@ data:
     }
     ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
-        cache {{ .Values.configmap.cache.success }} 
+        cache {{ .Values.configmap.cache.success }}
         reload
         loop
         bind 0.0.0.0

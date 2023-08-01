@@ -10,8 +10,6 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Upgrade application to version 1.22.23 (includes coredns 1.10)
-- Enable prefetch in cache
-- Remove custom cache TTL and use default
 - Enable TCP connections for external zones
 
 ## [2.3.1] - 2023-07-12
