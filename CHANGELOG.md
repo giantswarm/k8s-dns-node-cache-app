@@ -10,6 +10,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Install PSP resource based on values for PSP deprecation.
+- Add PolicyExceptions for PSS compliance.
 
 ## [2.4.0] - 2023-08-01
 
