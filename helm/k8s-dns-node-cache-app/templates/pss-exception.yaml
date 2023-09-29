@@ -13,7 +13,7 @@ spec:
     - autogen-adding-capabilities
   - policyName: disallow-capabilities-strict
     ruleNames:
-    - adding-capabilities
+    - adding-capabilities-strict
     - autogen-adding-capabilities-strict
     - require-drop-all
     - autogen-require-drop-all
