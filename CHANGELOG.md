@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Install PSP resource based on values for PSP deprecation.
+
 ## [2.4.0] - 2023-08-01
 
 ### Changed
