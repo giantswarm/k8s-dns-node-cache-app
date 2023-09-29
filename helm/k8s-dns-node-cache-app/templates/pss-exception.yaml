@@ -29,6 +29,14 @@ spec:
     ruleNames:
     - run-as-non-root
     - autogen-run-as-non-root
+  - policyName: require-run-as-nonroot
+    ruleNames:
+    - run-as-non-root
+    - autogen-run-as-non-root
+  - policyName: restrict-seccomp
+    ruleNames:
+    - check-seccomp
+    - autogen-check-seccomp
   - policyName: restrict-seccomp-strict
     ruleNames:
     - check-seccomp-strict
