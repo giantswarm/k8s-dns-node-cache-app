@@ -51,6 +51,8 @@ spec:
           capabilities:
             add:
             - NET_ADMIN
+          seccompProfile:
+            type: Unconfined
         ports:
         - containerPort: {{ .Values.ports.prometheus.nodecache }}
           name: metrics
