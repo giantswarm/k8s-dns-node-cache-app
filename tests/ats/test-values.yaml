@@ -1,0 +1,4 @@
+
+namespace: default
+ciliumNetworkPolicy:
+  enabled: false
