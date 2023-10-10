@@ -41,7 +41,6 @@ def load_yaml_from_path(filepath) -> Any:
 def app_cr(
     app_factory: AppFactoryFunc, chart_version: str
 ) -> ConfiguredApp:
-    logger.info(f"app_name: {app_name}, chart_version: {chart_version}")
     res = app_factory(
         app_name,
         chart_version,
@@ -67,7 +66,6 @@ def test_api_working(kube_cluster: Cluster) -> None:
     kube_cluster.kubectl(
         "get ns"
     )
-    logger.info(f"api working")
 
 
 @pytest.mark.smoke
