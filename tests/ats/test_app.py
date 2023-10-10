@@ -66,9 +66,6 @@ def test_api_working(kube_cluster: Cluster) -> None:
     kube_cluster.kubectl(
         "get ns"
     )
-    kube_cluster.kubectl(
-        "apply -f https://raw.githubusercontent.com/giantswarm/kyverno-app/main/helm/kyverno/crd/crd-8.yaml"
-    )
 
 
 @pytest.mark.smoke
