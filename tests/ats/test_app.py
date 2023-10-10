@@ -27,7 +27,7 @@ timeout: int = 360
 
 app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
 
-app_namespace = "default"
+app_namespace = "kube-system"
 app_name = "k8s-dns-node-cache-app"
 
 def load_yaml_from_path(filepath) -> Any:
