@@ -30,31 +30,6 @@ app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
 app_namespace = "kube-system"
 app_name = "k8s-dns-node-cache-app"
 
-def load_yaml_from_path(filepath) -> Any:
-    with open(filepath, "r", encoding="utf-8") as values_file:
-        values = values_file.read()
-
-    yaml_config = yaml.safe_load(values)
-    return yaml_config
-
-@pytest.fixture(scope="module")
-def app_cr(
-    app_factory: AppFactoryFunc, chart_version: str
-) -> ConfiguredApp:
-    res = app_factory(
-        app_name,
-        chart_version,
-        f"chartmuseum-test-time",
-        app_namespace,
-        "http://chartmuseum.giantswarm.svc.cluster.local.:8080/",
-        timeout_sec=timeout,
-        namespace=app_namespace,
-        config_values=load_yaml_from_path("test-values.yaml"),
-        deployment_namespace=app_namespace,
-    )
-    return res
-
-
 @pytest.mark.smoke
 def test_api_working(kube_cluster: Cluster) -> None:
     """
@@ -69,7 +44,7 @@ def test_api_working(kube_cluster: Cluster) -> None:
 
 
 @pytest.mark.smoke
-def test_app_deployed(kube_cluster: Cluster, app_cr: AppCR):
+def test_app_deployed(kube_cluster: Cluster):
     app = (
         AppCR.objects(kube_cluster.kube_client)
         .filter(namespace=app_namespace)

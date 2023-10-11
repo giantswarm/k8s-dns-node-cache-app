@@ -1,4 +1,5 @@
-app-tests-skip-app-deploy: true
+app-tests-app-config-file: tests/ats/test-values.yaml
+app-tests-deploy-namespace: kube-system
 
 smoke-tests-cluster-config-file: tests/kind_config.yaml
 smoke-tests-cluster-type: kind
