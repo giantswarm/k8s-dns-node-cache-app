@@ -53,6 +53,9 @@ test:
     name: giantswarm/alpine-testing
     tag: 0.1.1
 
+ciliumNetworkPolicy:
+  enabled: true
+
 global:
   podSecurityStandards:
     enforced: false

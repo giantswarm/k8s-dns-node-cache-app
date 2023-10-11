@@ -1,0 +1,10 @@
+k8s-dns-*.tgz
+k8s-dns-*.tgz-meta/
+*.kube.config
+test_results_*.xml
+.pytest_cache
+__pycache__
+**/.idea/
+vendor
+build
+*.swp

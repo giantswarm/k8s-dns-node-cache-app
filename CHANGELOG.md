@@ -11,6 +11,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - Install PSP resource based on values for PSP deprecation.
 - Add PolicyExceptions for PSS compliance.
+- Replace build pipeline with ABS.
+- Replace testing pipeline with ATS basic test.
 
 ## [2.4.0] - 2023-08-01
 
