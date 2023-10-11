@@ -4,7 +4,7 @@ description: A Helm chart to run NodeLocal DNSCache in Kubernetes clusters
 icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
 home: https://github.com/giantswarm/k8s-dns-node-cache-app
 name: k8s-dns-node-cache-app
-version: 2.4.0
+version: 2.5.0
 annotations:
   application.giantswarm.io/team: "cabbage"
 restrictions:
