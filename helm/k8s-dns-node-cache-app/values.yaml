@@ -7,7 +7,7 @@ namespace: kube-system
 serviceType: managed
 
 image:
-  registry: quay.io
+  registry: gsoci.azurecr.io
   name: giantswarm/k8s-dns-node-cache
   tag: 1.22.23
 
@@ -47,11 +47,6 @@ configmap:
   cache:
     success: 30
     denial: 5
-
-test:
-  image:
-    name: giantswarm/alpine-testing
-    tag: 0.1.1
 
 ciliumNetworkPolicy:
   enabled: true
