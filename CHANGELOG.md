@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.6.0] - 2024-01-09
+
 ### Changed
 
 - Configure `gsoci.azurecr.io` as the default container image registry.
@@ -103,7 +105,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.0...HEAD
+[2.6.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.3.1...v2.4.0
 [2.3.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.3.0...v2.3.1
