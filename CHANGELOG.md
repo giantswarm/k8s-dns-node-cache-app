@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Revert `force_tcp` option from external DNS zone ([#67](https://github.com/giantswarm/k8s-dns-node-cache-app/pull/67)).
+
 ## [2.6.0] - 2024-01-09
 
 ### Changed
