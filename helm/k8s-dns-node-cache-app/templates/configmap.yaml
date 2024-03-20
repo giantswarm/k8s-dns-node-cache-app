@@ -9,6 +9,9 @@ data:
   Corefile: |
     {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.upstreamService.servicePort }} {
         errors
+        log . {
+          class error
+        }
         template ANY AAAA {
                 rcode NOERROR
         }
@@ -27,6 +30,9 @@ data:
     }
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
+        log . {
+          class error
+        }
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
@@ -38,6 +44,9 @@ data:
     }
     ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
+        log . {
+          class error
+        }
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
@@ -49,6 +58,9 @@ data:
     }
     .:{{ .Values.upstreamService.servicePort }} {
         errors
+        log . {
+          class error
+        }
         template ANY AAAA {
                 rcode NOERROR
         }
