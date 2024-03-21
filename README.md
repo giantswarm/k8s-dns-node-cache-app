@@ -21,46 +21,11 @@ This App is meant to be a drop-in add-on that can be installed with default conf
 The app will be running as a daemonset alongside the already existing `coreDNS` app, dramatically improving DNS resolution
 performances with a very small footprint in terms of system resources.
 
-## Network Policies
-
-When installing `k8s-dns-node-cache-app` you need to ensure any other workload running in the cluster has access to the new DNS service.
-This is an example network policy you might need to create:
-
-```
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-node-local-dns-for-my-app
-spec:
-  podSelector:
-    matchLabels:
-      app: web
-  policyTypes:
-    - Egress
-  egress:
-  - to:
-    - ipBlock:
-        # this is the coredns service's Cluster IP.
-        cidr: 172.31.0.10/32
-    ports:
-    - protocol: UDP
-      port: 53
-  - to:
-    - podSelector:
-        matchLabels:
-          k8s-app: coredns
-    ports:
-    - protocol: UDP
-      port: 53
-    - protocol: UDP
-      port: 1053
-```
-
 ## Known issues and limitations
 
-- The upstream application only works with `kube-proxy`-based clusters. It will NOT work when using other `Kubernetes Service` implementations such as `Cilium` for example.
+- The upstream application only works with `kube-proxy`-based clusters. It will NOT work when using other `Kubernetes Service` (e.g. `cilium`). This app works with `cilium` by using `CiliumLocalRedirectPolicy` enabled by default.
 - This app only works with `kube-proxy` in `iptables` mode. The upstream application works in `IPVS` mode as well, but the Giant Swarm app does not support that use case.
 - After removing the application previously installed in the cluster, it might take some time for the injected `iptables` rules to be deleted. 
   While that happens, DNS queries will fail for all pods running in that node will fail. We suggest rolling or rebooting all nodes after deleting this app.
 - This application makes `net-exporter` <= v1.10.3 probes fail and thus makes clusters page.
-- This application does NOT work and breaks networking on AWS clusters (suspect conflict with AWS CNI).
+- Unless running `cilium` as CNI, this application does NOT work and breaks networking on clusters running AWS CNI.
