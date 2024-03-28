@@ -23,7 +23,7 @@ performances with a very small footprint in terms of system resources.
 
 ## Known issues and limitations
 
-- The upstream application only works with `kube-proxy`-based clusters. It will NOT work when using other `Kubernetes Service` (e.g. `cilium`). This app works with `cilium` by using `CiliumLocalRedirectPolicy` enabled by default.
+- The upstream application only works with `kube-proxy`-based clusters. This app has been made compatible with `cilium` as the cluster network proxy following [this guide](https://docs.cilium.io/en/stable/network/kubernetes/local-redirect-policy/#node-local-dns-cache).
 - This app only works with `kube-proxy` in `iptables` mode. The upstream application works in `IPVS` mode as well, but the Giant Swarm app does not support that use case.
 - After removing the application previously installed in the cluster, it might take some time for the injected `iptables` rules to be deleted. 
   While that happens, DNS queries will fail for all pods running in that node will fail. We suggest rolling or rebooting all nodes after deleting this app.
