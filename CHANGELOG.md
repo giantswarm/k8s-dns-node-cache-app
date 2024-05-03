@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Update PolicyException CR version to v2beta1.
+
 ## [2.6.1] - 2024-02-07
 
 ### Changed
