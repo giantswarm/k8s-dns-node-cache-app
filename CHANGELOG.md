@@ -11,6 +11,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - Update PolicyException CR version to v2beta1.
 
+## [2.6.2] - 2024-05-09
+
+### Changed
+
+- Reduce CPU requests.
+
 ## [2.6.1] - 2024-02-07
 
 ### Changed
@@ -115,7 +121,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.1...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.2...HEAD
+[2.6.2]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.1...v2.6.2
 [2.6.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.4.0...v2.5.0
