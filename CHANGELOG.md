@@ -7,6 +7,15 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Reduce security exceptions [#89](https://github.com/giantswarm/k8s-dns-node-cache-app/pull/89).
+  - Enable readOnly FS moving config to emptyDir volume.
+  - Remove `NET_ADMIN` and drop `ALL` capabilities.
+  - Add `NET_BIND_SERVICE` capability.
+  - Add policy exception for `require-non-root-groups/autogen-check-runasgroup`.
+  - Remove disallow-capabilities-* policy exceptions.
+
 ## [2.7.0] - 2024-06-18
 
 ### Changed
