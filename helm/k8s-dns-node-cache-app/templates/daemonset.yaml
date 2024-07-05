@@ -35,7 +35,7 @@ spec:
         - -localip
         - "{{ .Values.cluster.kubernetes.LOCAL.IP }},{{ .Values.cluster.kubernetes.DNS.IP }}"
         - -basecorefile
-        - "/etc/coredns-base/Corefile.Base"
+        - "/etc/coredns-base/Corefile.base"
         - -corefile
         - "/etc/coredns/Corefile"
         - -upstreamsvc
