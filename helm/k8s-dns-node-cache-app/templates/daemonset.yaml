@@ -27,10 +27,8 @@ spec:
         operator: "Exists"
       securityContext:
         readOnlyRootFilesystem: true
-        runAsUser: 33
-        runAsGroup: 33
         seccompProfile:
-          type: RuntimeDefault
+          type: Unconfined
       containers:
       - name: node-cache
         image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
@@ -56,13 +54,11 @@ spec:
         - -setupinterface=false
         - -setupiptables=false
         securityContext:
-          allowPrivilegeEscalation: false
           capabilities:
             add:
             - NET_BIND_SERVICE
             drop:
             - ALL
-          readOnlyRootFilesystem: true
         ports:
         - containerPort: {{ .Values.ports.prometheus.nodecache }}
           name: metrics
