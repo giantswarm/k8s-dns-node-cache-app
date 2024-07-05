@@ -32,11 +32,13 @@ spec:
         resources: {{ toYaml .Values.resources | nindent 10 }}
         {{- end }}
         args:
-        - "-localip"
+        - -localip
         - "{{ .Values.cluster.kubernetes.LOCAL.IP }},{{ .Values.cluster.kubernetes.DNS.IP }}"
-        - "-conf"
-        - "/etc/Corefile"
-        - "-upstreamsvc"
+        - -basecorefile
+        - "/etc/coredns-base/Corefile.Base"
+        - -corefile
+        - "/etc/coredns/Corefile"
+        - -upstreamsvc
         - "{{ .Values.name }}-upstream"
         - -dns.port
         - "{{ .Values.upstreamService.servicePort }}"
@@ -79,6 +81,8 @@ spec:
           readOnly: false
         - name: config-volume
           mountPath: /etc/coredns
+        - name: config-base-volume
+          mountPath: /etc/coredns-base
         - name: kube-dns-config
           mountPath: /etc/kube-dns
       volumes:
@@ -90,9 +94,11 @@ spec:
         configMap:
           name: kube-dns
           optional: true
-      - name: config-volume
+      - name: config-base-volume
         configMap:
           name: {{ .Values.name }}
           items:
             - key: Corefile
               path: Corefile.base
+      - name: config-volume
+        emptyDir: {}
