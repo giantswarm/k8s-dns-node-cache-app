@@ -7,16 +7,6 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 spec:
   exceptions:
-  - policyName: disallow-capabilities
-    ruleNames:
-    - adding-capabilities
-    - autogen-adding-capabilities
-  - policyName: disallow-capabilities-strict
-    ruleNames:
-    - adding-capabilities-strict
-    - autogen-adding-capabilities-strict
-    - require-drop-all
-    - autogen-require-drop-all
   - policyName: disallow-host-path
     ruleNames:
     - host-path
@@ -45,6 +35,9 @@ spec:
     ruleNames:
     - restricted-volumes
     - autogen-restricted-volumes
+  - policyName: require-non-root-groups
+    ruleNames:
+    - autogen-check-runasgroup
   match:
     any:
     - resources:
