@@ -25,6 +25,10 @@ spec:
         operator: "Exists"
       - effect: "NoSchedule"
         operator: "Exists"
+      securityContext:
+        readOnlyRootFilesystem: true
+        seccompProfile:
+          type: Unconfined
       containers:
       - name: node-cache
         image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
@@ -32,11 +36,13 @@ spec:
         resources: {{ toYaml .Values.resources | nindent 10 }}
         {{- end }}
         args:
-        - "-localip"
+        - -localip
         - "{{ .Values.cluster.kubernetes.LOCAL.IP }},{{ .Values.cluster.kubernetes.DNS.IP }}"
-        - "-conf"
-        - "/etc/Corefile"
-        - "-upstreamsvc"
+        - -basecorefile
+        - "/etc/coredns-base/Corefile.base"
+        - -conf
+        - "/etc/coredns/Corefile"
+        - -upstreamsvc
         - "{{ .Values.name }}-upstream"
         - -dns.port
         - "{{ .Values.upstreamService.servicePort }}"
@@ -50,9 +56,9 @@ spec:
         securityContext:
           capabilities:
             add:
-            - NET_ADMIN
-          seccompProfile:
-            type: Unconfined
+            - NET_BIND_SERVICE
+            drop:
+            - ALL
         ports:
         - containerPort: {{ .Values.ports.prometheus.nodecache }}
           name: metrics
@@ -78,6 +84,8 @@ spec:
           readOnly: false
         - name: config-volume
           mountPath: /etc/coredns
+        - name: config-base-volume
+          mountPath: /etc/coredns-base
         - name: kube-dns-config
           mountPath: /etc/kube-dns
       volumes:
@@ -89,9 +97,11 @@ spec:
         configMap:
           name: kube-dns
           optional: true
-      - name: config-volume
+      - name: config-base-volume
         configMap:
           name: {{ .Values.name }}
           items:
             - key: Corefile
               path: Corefile.base
+      - name: config-volume
+        emptyDir: {}
