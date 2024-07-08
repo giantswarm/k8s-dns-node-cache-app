@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.8.0] - 2024-07-08
+
 ### Changed
 
 - Reduce security exceptions [#89](https://github.com/giantswarm/k8s-dns-node-cache-app/pull/89).
@@ -132,7 +134,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.7.0...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.8.0...HEAD
+[2.8.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.7.0...v2.8.0
 [2.7.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.2...v2.7.0
 [2.6.2]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.1...v2.6.2
 [2.6.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.0...v2.6.1
