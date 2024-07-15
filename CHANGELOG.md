@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Make the app visible for all providers.
+
 ## [2.8.0] - 2024-07-08
 
 ### Changed

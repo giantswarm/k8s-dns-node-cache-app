@@ -11,4 +11,3 @@ restrictions:
   clusterSingleton: true
   fixedNamespace: kube-system
   gpuInstances: false
-  compatibleProviders: [azure, aws]
