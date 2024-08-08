@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Increase ServiceMonitor's scrapping interval to 1m.
+
 ## [2.8.1] - 2024-07-15
 
 ### Changed

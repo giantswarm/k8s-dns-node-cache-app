@@ -8,7 +8,7 @@ metadata:
 spec:
   endpoints:
     - honorLabels: true
-      interval: 10s
+      interval: 1m
       path: /metrics
       port: coredns
       relabelings:
