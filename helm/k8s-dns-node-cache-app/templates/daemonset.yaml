@@ -72,10 +72,13 @@ spec:
         - containerPort: 53
           name: dns-tcp
           protocol: TCP
+        - containerPort: {{ .Values.ports.liveness }}
+          name: health
+          protocol: TCP
         livenessProbe:
           httpGet:
             path: /health
-            port: {{ .Values.ports.liveness }}
+            port: health
           initialDelaySeconds: 60
           timeoutSeconds: 5
         volumeMounts:
