@@ -1,2 +1,6 @@
 ciliumNetworkPolicy:
   enabled: false
+
+global:
+  podSecurityStandards:
+    enforced: true
