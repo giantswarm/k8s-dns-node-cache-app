@@ -15,6 +15,7 @@ data:
         cache {
                 success 9984 {{ .Values.configmap.cache.success }}
                 denial 9984 {{ .Values.configmap.cache.denial }}
+                serve_stale
         }
         reload
         loop
