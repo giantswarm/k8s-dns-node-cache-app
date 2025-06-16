@@ -9,6 +9,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Changed
 
+- Upgrade application to version 1.26.4 (includes coredns 1.11.3)
 - Increase ServiceMonitor's scrapping interval to 1m.
 - Remove obsolete PSPs
 
