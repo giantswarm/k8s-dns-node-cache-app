@@ -10,6 +10,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Increase ServiceMonitor's scrapping interval to 1m.
+- Remove obsolete PSPs
 
 ## [2.8.1] - 2024-07-15
 

@@ -50,7 +50,3 @@ configmap:
 
 ciliumNetworkPolicy:
   enabled: true
-
-global:
-  podSecurityStandards:
-    enforced: false
