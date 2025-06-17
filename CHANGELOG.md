@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.9.0] - 2025-06-17
+
 ### Changed
 
 - Upgrade application to version 1.26.4 (includes coredns 1.11.3)
@@ -146,7 +148,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.8.1...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.9.0...HEAD
+[2.9.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.8.1...v2.9.0
 [2.8.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.8.0...v2.8.1
 [2.8.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.7.0...v2.8.0
 [2.7.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.6.2...v2.7.0
