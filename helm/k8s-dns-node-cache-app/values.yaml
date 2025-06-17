@@ -9,7 +9,7 @@ serviceType: managed
 image:
   registry: gsoci.azurecr.io
   name: giantswarm/k8s-dns-node-cache
-  tag: 1.22.23
+  tag: 1.26.4
 
 updateStrategy:
   rollingUpdate:
@@ -50,7 +50,3 @@ configmap:
 
 ciliumNetworkPolicy:
   enabled: true
-
-global:
-  podSecurityStandards:
-    enforced: false

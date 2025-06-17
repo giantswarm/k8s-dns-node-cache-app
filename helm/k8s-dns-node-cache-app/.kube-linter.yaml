@@ -5,4 +5,3 @@ checks:
   - "run-as-non-root"
   - "unset-memory-requirements"
   - "dangling-service"
-  - "no-read-only-root-fs"
