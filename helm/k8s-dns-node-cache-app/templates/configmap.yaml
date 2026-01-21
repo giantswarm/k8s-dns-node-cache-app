@@ -13,8 +13,9 @@ data:
                 rcode NOERROR
         }
         cache {
-                success 9984 {{ .Values.configmap.cache.success }}
-                denial 9984 {{ .Values.configmap.cache.denial }}
+                success 9984 {{ .Values.configmap.cache.success }} 15
+                denial 9984 {{ .Values.configmap.cache.denial }} 15
+                serve_stale
         }
         reload
         loop
@@ -52,7 +53,11 @@ data:
         template ANY AAAA {
                 rcode NOERROR
         }
-        cache {{ .Values.configmap.cache.success }}
+        cache {
+                success 9984 {{ .Values.configmap.cache.success }} 15
+                denial 9984 {{ .Values.configmap.cache.denial }} 15
+                serve_stale
+        }
         reload
         loop
         bind 0.0.0.0
