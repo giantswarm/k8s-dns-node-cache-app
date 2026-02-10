@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade application to version 1.26.7 (includes coredns 1.13.1)
+
 ## [2.9.1] - 2025-09-03
 
 ### Changed
