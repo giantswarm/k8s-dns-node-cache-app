@@ -7,7 +7,7 @@ name: k8s-dns-node-cache-app
 version: 2.9.2
 annotations:
   io.giantswarm.application.team: cabbage
-restrictions:
-  clusterSingleton: true
-  fixedNamespace: kube-system
-  gpuInstances: false
+  io.giantswarm.application.audience: "all"
+  io.giantswarm.application.restrictions.cluster-singleton: "true"
+  io.giantswarm.application.restrictions.fixed-namespace: kube-system
+  io.giantswarm.application.restrictions.gpu-instances: "false"
