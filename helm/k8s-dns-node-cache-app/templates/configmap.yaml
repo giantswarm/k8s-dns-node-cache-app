@@ -10,6 +10,9 @@ data:
     {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.upstreamService.servicePort }} {
         errors
         
+        {{- if .Values.configmap.log.enabled }}
+        log
+        {{- end }}
         {{- if .Values.configmap.noAAAAResponse }}
         template ANY AAAA {
                 rcode NOERROR
@@ -30,6 +33,9 @@ data:
     }
     in-addr.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
+        {{- if .Values.configmap.log.enabled }}
+        log
+        {{- end }}
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
@@ -41,6 +47,9 @@ data:
     }
     ip6.arpa:{{ .Values.upstreamService.servicePort }} {
         errors
+        {{- if .Values.configmap.log.enabled }}
+        log
+        {{- end }}
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
@@ -52,6 +61,9 @@ data:
     }
     .:{{ .Values.upstreamService.servicePort }} {
         errors
+        {{- if .Values.configmap.log.enabled }}
+        log
+        {{- end }}
         {{- if .Values.configmap.noAAAAResponse }}
         template ANY AAAA {
                 rcode NOERROR
@@ -61,6 +73,6 @@ data:
         reload
         loop
         bind 0.0.0.0
-        forward . __PILLAR__CLUSTER__DNS__ 
+        forward . __PILLAR__CLUSTER__DNS__
         prometheus :{{ .Values.ports.prometheus.coredns }}
     }

@@ -48,6 +48,8 @@ configmap:
     success: 30
     denial: 5
   noAAAAResponse: true
+  log:
+    enabled: false
 
 ciliumNetworkPolicy:
   enabled: true
