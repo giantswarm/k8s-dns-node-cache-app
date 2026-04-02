@@ -7,12 +7,15 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Add `configmap.log.enabled` helm value to toggle CoreDNS query logging (default: `false`).
+
 ## [2.10.0] - 2026-04-13
 
 ### Added
 
 - Make `AAAA NOERROR` configurable for IPv6.
-- Add `configmap.log.enabled` helm value to toggle CoreDNS query logging (default: `false`).
 
 ## [2.9.2] - 2026-02-10
 

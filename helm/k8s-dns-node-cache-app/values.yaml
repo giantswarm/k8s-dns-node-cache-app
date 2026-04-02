@@ -49,7 +49,7 @@ configmap:
     denial: 5
   noAAAAResponse: true
   log:
-    enabled: false
+    enabled: true
 
 ciliumNetworkPolicy:
   enabled: true
