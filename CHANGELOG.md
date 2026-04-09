@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Make `AAAA NOERROR` configurable for IPv6.
+
 ## [2.9.2] - 2026-02-10
 
 ### Changed
