@@ -44,6 +44,9 @@
                             "type": "integer"
                         }
                     }
+                },
+                "noAAAAResponse": {
+                    "type": "boolean"
                 }
             }
         },

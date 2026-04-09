@@ -9,9 +9,12 @@ data:
   Corefile: |
     {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.upstreamService.servicePort }} {
         errors
+        
+        {{- if .Values.configmap.noAAAAResponse }}
         template ANY AAAA {
                 rcode NOERROR
         }
+        {{- end }}
         cache {
                 success 9984 {{ .Values.configmap.cache.success }}
                 denial 9984 {{ .Values.configmap.cache.denial }}
@@ -49,9 +52,11 @@ data:
     }
     .:{{ .Values.upstreamService.servicePort }} {
         errors
+        {{- if .Values.configmap.noAAAAResponse }}
         template ANY AAAA {
                 rcode NOERROR
         }
+        {{- end }}
         cache {{ .Values.configmap.cache.success }}
         reload
         loop
