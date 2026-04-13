@@ -47,6 +47,7 @@ configmap:
   cache:
     success: 30
     denial: 5
+  noAAAAResponse: true
 
 ciliumNetworkPolicy:
   enabled: true
