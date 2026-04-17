@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.11.0] - 2026-04-17
+
 ### Added
 
 - Add `configmap.log.enabled` helm value to toggle CoreDNS query logging (default: `false`).
@@ -170,7 +172,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.10.0...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.0...HEAD
+[2.11.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.10.0...v2.11.0
 [2.10.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.9.2...v2.10.0
 [2.9.2]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.9.1...v2.9.2
 [2.9.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.9.0...v2.9.1
