@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Update architect to v10.12.0 (giantswarm/k8s-dns-node-cache-app#189)
+
 ### Added
 
 - Chart metadata: add `io.giantswarm.application.managed` annotation (`"true"`).
