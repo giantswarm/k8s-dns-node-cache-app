@@ -9,6 +9,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Fixed
 
+- Make the DNS Service redirected by the `CiliumLocalRedirectPolicy` configurable.
 - The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
 
 ### Added
