@@ -9,7 +9,7 @@ metadata:
 spec:
   redirectFrontend:
     serviceMatcher:
-      serviceName: coredns
+      serviceName: {{ .Values.cluster.kubernetes.DNS.serviceName }}
       namespace: {{ .Values.namespace }}
   redirectBackend:
     localEndpointSelector:

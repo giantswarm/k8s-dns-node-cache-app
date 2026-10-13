@@ -13,6 +13,9 @@
                             "properties": {
                                 "IP": {
                                     "type": "string"
+                                },
+                                "serviceName": {
+                                    "type": "string"
                                 }
                             }
                         },
