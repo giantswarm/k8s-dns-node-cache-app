@@ -1,15 +1,39 @@
 {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
+    "additionalProperties": false,
     "properties": {
+        "baseDomain": {
+            "type": "string"
+        },
+        "bootstrapMode": {
+            "type": "object",
+            "additionalProperties": true
+        },
+        "chartOperator": {
+            "type": "object",
+            "additionalProperties": true
+        },
+        "ciliumNetworkPolicy": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
         "cluster": {
             "type": "object",
+            "additionalProperties": true,
             "properties": {
                 "kubernetes": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "DNS": {
                             "type": "object",
+                            "additionalProperties": false,
                             "properties": {
                                 "IP": {
                                     "type": "string"
@@ -21,6 +45,7 @@
                         },
                         "LOCAL": {
                             "type": "object",
+                            "additionalProperties": false,
                             "properties": {
                                 "IP": {
                                     "type": "string"
@@ -34,11 +59,25 @@
                 }
             }
         },
+        "clusterCA": {
+            "type": "string"
+        },
+        "clusterCIDR": {
+            "type": "string"
+        },
+        "clusterDNSIP": {
+            "type": "string"
+        },
+        "clusterID": {
+            "type": "string"
+        },
         "configmap": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "cache": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "denial": {
                             "type": "integer"
@@ -48,13 +87,47 @@
                         }
                     }
                 },
+                "log": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        }
+                    }
+                },
                 "noAAAAResponse": {
                     "type": "boolean"
                 }
             }
         },
+        "externalDNSIP": {
+            "type": "string"
+        },
+        "gcpProject": {
+            "type": "string"
+        },
+        "global": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Global values shared between all subcharts and the platform.",
+            "additionalProperties": true,
+            "properties": {
+                "podSecurityStandards": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "helm": {
+            "type": "object",
+            "additionalProperties": true
+        },
         "image": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "name": {
                     "type": "string"
@@ -67,6 +140,9 @@
                 }
             }
         },
+        "managementCluster": {
+            "type": "string"
+        },
         "name": {
             "type": "string"
         },
@@ -75,12 +151,14 @@
         },
         "ports": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "liveness": {
                     "type": "integer"
                 },
                 "prometheus": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "coredns": {
                             "type": "integer"
@@ -92,56 +170,26 @@
                 }
             }
         },
+        "provider": {
+            "type": "string"
+        },
         "resources": {
             "type": "object",
-            "properties": {
-                "requests": {
-                    "type": "object",
-                    "properties": {
-                        "cpu": {
-                            "type": "string"
-                        },
-                        "memory": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
+            "additionalProperties": true
         },
         "serviceType": {
             "type": "string"
         },
-        "test": {
-            "type": "object",
-            "properties": {
-                "image": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "tag": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
+        "subscriptionID": {
+            "type": "string"
         },
         "updateStrategy": {
             "type": "object",
-            "properties": {
-                "rollingUpdate": {
-                    "type": "object",
-                    "properties": {
-                        "maxUnavailable": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
+            "additionalProperties": true
         },
         "upstreamService": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "appName": {
                     "type": "string"
