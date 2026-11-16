@@ -9,7 +9,7 @@ data:
   Corefile: |
     {{ .Values.cluster.kubernetes.clusterDomain }}:{{ .Values.upstreamService.servicePort }} {
         errors
-        
+
         {{- if .Values.configmap.log.enabled }}
         log
         {{- end }}

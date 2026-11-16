@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main.svg?style=svg)](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main) [![Docker Repository on Quay](https://quay.io/repository/giantswarm/k8s-dns-node-cache/status "Docker Repository on Quay")](https://quay.io/repository/giantswarm/k8s-dns-node-cache)
+[![CircleCI](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main.svg?style=svg)](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main)
 
 # k8s-dns-node-cache-app
 
@@ -25,7 +25,7 @@ performances with a very small footprint in terms of system resources.
 
 - The upstream application only works with `kube-proxy`-based clusters. This app has been made compatible with `cilium` as the cluster network proxy following [this guide](https://docs.cilium.io/en/stable/network/kubernetes/local-redirect-policy/#node-local-dns-cache).
 - This app only works with `kube-proxy` in `iptables` mode. The upstream application works in `IPVS` mode as well, but the Giant Swarm app does not support that use case.
-- After removing the application previously installed in the cluster, it might take some time for the injected `iptables` rules to be deleted. 
+- After removing the application previously installed in the cluster, it might take some time for the injected `iptables` rules to be deleted.
   While that happens, DNS queries will fail for all pods running in that node will fail. We suggest rolling or rebooting all nodes after deleting this app.
 - This application makes `net-exporter` <= v1.10.3 probes fail and thus makes clusters page.
 - Unless running `cilium` as CNI, this application does NOT work and breaks networking on clusters running AWS CNI.

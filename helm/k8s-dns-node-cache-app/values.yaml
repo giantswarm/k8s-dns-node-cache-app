@@ -11,7 +11,7 @@ image:
   name: giantswarm/k8s-dns-node-cache
   tag: 1.26.7
 
-updateStrategy:
+updateStrategy:  # @schema skipProperties: true; additionalProperties: true
   rollingUpdate:
     maxUnavailable: 10%
 
@@ -39,7 +39,7 @@ upstreamService:
   # The value of the `k8s-app` label for the traditional coredns pods.
   appName: coredns
 
-resources:
+resources:  # @schema skipProperties: true; additionalProperties: true
   requests:
     cpu: 50m
     memory: 100Mi
