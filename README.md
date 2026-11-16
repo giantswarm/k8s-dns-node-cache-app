@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main.svg?style=svg)](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main) [![Docker Repository on Quay](https://quay.io/repository/giantswarm/k8s-dns-node-cache/status "Docker Repository on Quay")](https://quay.io/repository/giantswarm/k8s-dns-node-cache)
+[![CircleCI](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main.svg?style=svg)](https://circleci.com/gh/giantswarm/k8s-dns-node-cache-app/tree/main)
 
 # k8s-dns-node-cache-app
 
