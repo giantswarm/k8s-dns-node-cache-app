@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Prepare the repository for generated CI: publish only to `default-catalog` (no longer to `giantswarm-catalog`), make the ATS tests independent of the App CR and move the kind configuration to `.ats/kind-config.yaml`, and mark `resources` and `updateStrategy` as free-form for the generated values schema.
+
 ## [2.11.1] - 2026-10-13
 
 ### Fixed
