@@ -26,7 +26,6 @@ spec:
       - effect: "NoSchedule"
         operator: "Exists"
       securityContext:
-        readOnlyRootFilesystem: true
         seccompProfile:
           type: Unconfined
       containers:
