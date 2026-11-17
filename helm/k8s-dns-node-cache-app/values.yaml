@@ -66,3 +66,9 @@ ciliumLocalRedirectPolicy:
   # @schema type: [null, boolean]
   # -- Redirect traffic for the cluster DNS Service to the node-local cache with a CiliumLocalRedirectPolicy. When unset, follows `ciliumNetworkPolicy.enabled`.
   enabled:
+
+kyvernoPolicyExceptions:
+  enabled: true
+  legacy:
+    # -- Render the kyverno.io/v2 PolicyException, which only applies to ClusterPolicies. Turn it off once the cluster runs the CEL policies.
+    enabled: true
