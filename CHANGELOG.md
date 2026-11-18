@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+- Scrape node-cache metrics once instead of twice.
+
 ## [2.11.2] - 2026-11-18
 
 ### Fixed
