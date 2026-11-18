@@ -15,6 +15,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Fixed
 
+- Scrape node-cache metrics once instead of twice.
+
+## [2.11.2] - 2026-11-18
+
+### Fixed
+
 - Remove `readOnlyRootFilesystem` from the pod security context, where it is not a valid field.
 
 ### Changed
@@ -198,7 +204,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.1...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.2...HEAD
+[2.11.2]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.1...v2.11.2
 [2.11.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.0...v2.11.1
 [2.11.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.10.0...v2.11.0
 [2.10.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.9.2...v2.10.0
