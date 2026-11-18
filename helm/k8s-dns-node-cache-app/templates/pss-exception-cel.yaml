@@ -1,0 +1,52 @@
+{{- if .Values.kyvernoPolicyExceptions.enabled }}
+apiVersion: policies.kyverno.io/v1
+kind: PolicyException
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
+spec:
+  policyRefs:
+  - name: disallow-host-path
+    kind: ValidatingPolicy
+  - name: disallow-privilege-escalation
+    kind: ValidatingPolicy
+  - name: disallow-run-as-nonroot
+    kind: ValidatingPolicy
+  - name: require-run-as-nonroot
+    kind: ValidatingPolicy
+  - name: restrict-seccomp
+    kind: ValidatingPolicy
+  - name: restrict-seccomp-strict
+    kind: ValidatingPolicy
+  - name: restrict-volume-types
+    kind: ValidatingPolicy
+  - name: require-non-root-groups
+    kind: ValidatingPolicy
+  # require-container-requests-and-limits is a supplemental policy and usually
+  # not enabled. It is excepted because the k8s-dns-node-cache DaemonSet fails it
+  # when the policy is enforced.
+  - name: require-container-requests-and-limits
+    kind: ValidatingPolicy
+  # require-emptydir-requests-and-limits is a supplemental policy and usually not
+  # enabled. It is excepted because the k8s-dns-node-cache DaemonSet fails it when
+  # the policy is enforced.
+  - name: require-emptydir-requests-and-limits
+    kind: ValidatingPolicy
+  # restrict-sa-automount-sa-token is a supplemental policy and usually not
+  # enabled. It is excepted because the k8s-dns-node-cache ServiceAccount fails
+  # it when the policy is enforced.
+  - name: restrict-sa-automount-sa-token
+    kind: ValidatingPolicy
+  matchConditions:
+  - name: k8s-dns-node-cache-workloads
+    # ServiceAccount is matched for restrict-sa-automount-sa-token.
+    expression: >-
+      request.kind.kind in ['DaemonSet', 'Pod', 'ServiceAccount'] &&
+      request.namespace == '{{ .Values.namespace }}' &&
+      has(object.metadata.name) &&
+      (object.metadata.name == '{{ .Values.name }}' || object.metadata.name.startsWith('{{ .Values.name }}-'))
+{{- end }}
