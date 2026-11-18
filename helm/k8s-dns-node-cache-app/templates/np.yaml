@@ -17,8 +17,6 @@ spec:
       protocol: TCP
     - port: {{ .Values.ports.prometheus.coredns }}
       protocol: TCP
-    - port: {{ .Values.ports.prometheus.nodecache }}
-      protocol: TCP
   egress:
   - {}
   policyTypes:
