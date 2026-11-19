@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.11.3] - 2026-11-19
+
 ### Fixed
 
 - Scrape node-cache metrics once instead of twice.
@@ -198,7 +200,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.2...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.3...HEAD
+[2.11.3]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.2...v2.11.3
 [2.11.2]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.1...v2.11.2
 [2.11.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.0...v2.11.1
 [2.11.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.10.0...v2.11.0
