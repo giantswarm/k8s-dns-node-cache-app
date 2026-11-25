@@ -19,8 +19,11 @@
             "additionalProperties": false,
             "properties": {
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Redirect traffic for the cluster DNS Service to the node-local cache with a CiliumLocalRedirectPolicy."
+                    "type": [
+                        "null",
+                        "boolean"
+                    ],
+                    "description": "Redirect traffic for the cluster DNS Service to the node-local cache with a CiliumLocalRedirectPolicy. When unset, follows `ciliumNetworkPolicy.enabled`."
                 }
             }
         },

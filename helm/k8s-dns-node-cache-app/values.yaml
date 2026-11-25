@@ -63,5 +63,6 @@ ciliumNetworkPolicy:
   ingress: []
 
 ciliumLocalRedirectPolicy:
-  # -- Redirect traffic for the cluster DNS Service to the node-local cache with a CiliumLocalRedirectPolicy.
-  enabled: true
+  # @schema type: [null, boolean]
+  # -- Redirect traffic for the cluster DNS Service to the node-local cache with a CiliumLocalRedirectPolicy. When unset, follows `ciliumNetworkPolicy.enabled`.
+  enabled:

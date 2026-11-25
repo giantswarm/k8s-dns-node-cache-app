@@ -1,9 +1,6 @@
 ciliumNetworkPolicy:
   enabled: false
 
-ciliumLocalRedirectPolicy:
-  enabled: false
-
 global:
   podSecurityStandards:
     enforced: true
