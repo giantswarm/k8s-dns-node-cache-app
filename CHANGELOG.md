@@ -7,6 +7,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking:** `ciliumNetworkPolicy.enabled` now switches between a least-privilege CiliumNetworkPolicy and a narrowed NetworkPolicy, replacing the NetworkPolicy that allowed all egress. Rules are overridable through `ciliumNetworkPolicy.egress` and `ciliumNetworkPolicy.ingress`.
+- **Breaking:** The CiliumLocalRedirectPolicy is controlled by `ciliumLocalRedirectPolicy.enabled` instead of `ciliumNetworkPolicy.enabled`.
+
 ## [2.11.3] - 2026-11-19
 
 ### Fixed
