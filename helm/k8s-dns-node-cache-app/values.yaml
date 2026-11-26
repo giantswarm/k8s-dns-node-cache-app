@@ -53,4 +53,16 @@ configmap:
     enabled: false
 
 ciliumNetworkPolicy:
+  # -- Render a CiliumNetworkPolicy. When false, a plain NetworkPolicy is rendered instead.
   enabled: true
+  # @schema item: object; itemAdditionalProperties: true
+  # -- Replaces the default CiliumNetworkPolicy egress rules when set.
+  egress: []
+  # @schema item: object; itemAdditionalProperties: true
+  # -- Replaces the default CiliumNetworkPolicy ingress rules when set.
+  ingress: []
+
+ciliumLocalRedirectPolicy:
+  # @schema type: [null, boolean]
+  # -- Redirect traffic for the cluster DNS Service to the node-local cache with a CiliumLocalRedirectPolicy. When unset, follows `ciliumNetworkPolicy.enabled`.
+  enabled:

@@ -1,4 +1,8 @@
-{{- if .Values.ciliumNetworkPolicy.enabled }}
+{{- $enabled := .Values.ciliumLocalRedirectPolicy.enabled }}
+{{- if kindIs "invalid" $enabled }}
+{{- $enabled = .Values.ciliumNetworkPolicy.enabled }}
+{{- end }}
+{{- if $enabled }}
 apiVersion: cilium.io/v2
 kind: CiliumLocalRedirectPolicy
 metadata:
