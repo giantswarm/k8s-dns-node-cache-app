@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.12.0] - 2026-11-26
+
 ### Changed
 
 - `ciliumNetworkPolicy.enabled` now switches between a least-privilege CiliumNetworkPolicy and a narrowed NetworkPolicy, replacing the NetworkPolicy that allowed all egress. Rules are overridable through `ciliumNetworkPolicy.egress` and `ciliumNetworkPolicy.ingress`.
@@ -208,7 +210,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First release featuring upstream version 1.21.4.
 
-[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.3...HEAD
+[Unreleased]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.12.0...HEAD
+[2.12.0]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.3...v2.12.0
 [2.11.3]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.2...v2.11.3
 [2.11.2]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.1...v2.11.2
 [2.11.1]: https://github.com/giantswarm/k8s-dns-node-cache-app/compare/v2.11.0...v2.11.1
